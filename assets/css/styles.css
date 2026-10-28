@@ -1,0 +1,18 @@
+@font-face {
+  font-family: "Kenney Future";
+  src: url(../../assets/fonts/KENNEY\ FUTURE.TTF);
+}
+html {
+  background-color: black;
+  height: 100%;
+}
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+canvas {
+  background-color: white;
+}
