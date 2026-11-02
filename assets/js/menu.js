@@ -8,13 +8,13 @@ function menuLoop() {
     buttonStyle1(oMenuPlayButton.x, oMenuPlayButton.y, oMenuPlayButton.width, oMenuPlayButton.height, oMenuPlayButton.scale);
     oContext.fillStyle = "#3fe4d6";
     oContext.textAlign = "center";
-    oContext.font = "50px 'Kenney Future'";
+    oContext.font = "50px " + sSansSerif;
     oContext.fillText(oTrans.menuPlay, oMenuPlayButton.x + oMenuPlayButton.width / 2, oMenuPlayButton.y + 65);
   } else {
     buttonStyle2(oMenuPlayButton.x, oMenuPlayButton.y, oMenuPlayButton.width, oMenuPlayButton.height, oMenuPlayButton.scale);
     oContext.fillStyle = "#3fe4d6";
     oContext.textAlign = "center";
-    oContext.font = "50px 'Kenney Future'";
+    oContext.font = "50px " + sSansSerif;
     oContext.fillText(oTrans.menuPlay, oMenuPlayButton.x + oMenuPlayButton.width / 2, oMenuPlayButton.y + 65 + oMenuPlayButton.scale / 10);
   }
 
@@ -31,13 +31,13 @@ function menuLoop() {
     buttonStyle1(oMenuSettingButton.x, oMenuSettingButton.y, oMenuSettingButton.width, oMenuSettingButton.height, oMenuSettingButton.scale);
     oContext.fillStyle = "#3fe4d6";
     oContext.textAlign = "center";
-    oContext.font = "50px 'Kenney Future'";
+    oContext.font = "50px " + sSansSerif;
     oContext.fillText(oTrans.menuSetting, oMenuSettingButton.x + oMenuSettingButton.width / 2, oMenuSettingButton.y + 65);
   } else {
     buttonStyle2(oMenuSettingButton.x, oMenuSettingButton.y, oMenuSettingButton.width, oMenuSettingButton.height, oMenuSettingButton.scale);
     oContext.fillStyle = "#3fe4d6";
     oContext.textAlign = "center";
-    oContext.font = "50px 'Kenney Future'";
+    oContext.font = "50px " + sSansSerif;
     oContext.fillText(
       oTrans.menuSetting,
       oMenuSettingButton.x + oMenuSettingButton.width / 2,
@@ -51,13 +51,13 @@ function menuLoop() {
     buttonStyle1(oCreditButton.x, oCreditButton.y, oCreditButton.width, oCreditButton.height, oCreditButton.scale);
     oContext.fillStyle = "#3fe4d6";
     oContext.textAlign = "center";
-    oContext.font = "25px 'Kenney Future'";
+    oContext.font = "25px " + sSansSerif;
     oContext.fillText(oTrans.credit, oCreditButton.x + oCreditButton.width / 2 + 2, oCreditButton.y + 37);
   } else {
     buttonStyle2(oCreditButton.x, oCreditButton.y, oCreditButton.width, oCreditButton.height, oCreditButton.scale);
     oContext.fillStyle = "#3fe4d6";
     oContext.textAlign = "center";
-    oContext.font = "25px 'Kenney Future'";
+    oContext.font = "25px " + sSansSerif;
     oContext.fillText(oTrans.credit, oCreditButton.x + oCreditButton.width / 2 + 2, oCreditButton.y + 37 + oCreditButton.scale / 10);
   }
 
@@ -65,9 +65,6 @@ function menuLoop() {
   oMuteButton.pressed = detectHover(nMousePosX, nMousePosY, oMuteButton.x, oMuteButton.y, oMuteButton.width, oMuteButton.height);
   if (!oMuteButton.pressed) {
     buttonStyle1(oMuteButton.x, oMuteButton.y, oMuteButton.width, oMuteButton.height, oMuteButton.scale);
-    oContext.fillStyle = "#3fe4d6";
-    oContext.textAlign = "center";
-    oContext.font = "25px 'Kenney Future'";
     if (!bMuted) {
       oContext.drawImage(oMuteButton.image, oMuteButton.x + 18, oMuteButton.y + 12, 35, 35);
     } else {
@@ -75,9 +72,6 @@ function menuLoop() {
     }
   } else {
     buttonStyle2(oMuteButton.x, oMuteButton.y, oMuteButton.width, oMuteButton.height, oMuteButton.scale);
-    oContext.fillStyle = "#3fe4d6";
-    oContext.textAlign = "center";
-    oContext.font = "25px 'Kenney Future'";
     if (!bMuted) {
       oContext.drawImage(oMuteButton.image, oMuteButton.x + 18, oMuteButton.y + 12 + oMuteButton.scale / 10, 35, 35);
     } else {
@@ -91,7 +85,7 @@ function menuLoop() {
     buttonStyle1(oTransButton.x, oTransButton.y, oTransButton.width, oTransButton.height, oTransButton.scale);
     oContext.fillStyle = "#3fe4d6";
     oContext.textAlign = "center";
-    oContext.font = "25px 'Kenney Future'";
+    oContext.font = "25px " + sSansSerif;
     oContext.fillText(oTrans.lang, oTransButton.x + oTransButton.width / 2 + 2, oTransButton.y + 37);
   } else {
     buttonStyle2(oTransButton.x, oTransButton.y, oTransButton.width, oTransButton.height, oTransButton.scale);
@@ -104,7 +98,7 @@ function menuLoop() {
   // Title
   oContext.textAlign = "right";
   oContext.fillStyle = "#fff";
-  oContext.font = "70px 'Kenney Future'";
+  oContext.font = "70px " + sSansSerif;
   oContext.fillText("Timergia", oCanvas.width - 50, 200);
   oContext.fillText("Casino", oCanvas.width - 50, 270);
 
@@ -130,6 +124,8 @@ function menuOnCick() {
   if (bTransClicked && lang === "fr") {
     lang = "en";
   } else if (bTransClicked && lang === "en") {
+    lang = "ru";
+  } else if (bTransClicked && lang === "ru") {
     lang = "fr";
   }
 

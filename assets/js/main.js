@@ -10,6 +10,8 @@ let bMuted = false;
 
 let lang = "fr"; // fr, en
 let oTrans;
+
+let sSansSerif = "'Kenney Future', 'Arial', 'sans-serif'";
 // Menu
 
 let oMenuTimEE = {
@@ -239,12 +241,19 @@ function globalLoop() {
       menuPlay: "Play",
       menuSetting: "Settings",
     };
-  } else {
+  } else if (lang == "fr") {
     oTrans = {
       lang: "fr",
       credit: "Crédits",
       menuPlay: "Jouer",
       menuSetting: "Paramêtre",
+    };
+  } else if (lang == "ru") {
+    oTrans = {
+      lang: "ru",
+      credit: "Титры",
+      menuPlay: "Играть",
+      menuSetting: "Настройки",
     };
   }
 
