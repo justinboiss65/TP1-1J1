@@ -104,9 +104,9 @@ function menuLoop() {
 
   // TIM-EE
   oMenuTimEE.animTime++;
-  if (oMenuTimEE.animTime == 0) {
+  if (oMenuTimEE.animTime == 1) {
     oMenuTimEE.y = -60;
-  } else if (oMenuTimEE.animTime > 0 && oMenuTimEE.animTime < 120) {
+  } else if (oMenuTimEE.animTime > 1 && oMenuTimEE.animTime < 120) {
     oMenuTimEE.y = oMenuTimEE.y + 0.25;
   } else if (oMenuTimEE.animTime >= 120 && oMenuTimEE.animTime < 240) {
     oMenuTimEE.y = oMenuTimEE.y - 0.25;

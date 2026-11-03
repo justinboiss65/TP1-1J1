@@ -246,7 +246,7 @@ function globalLoop() {
       lang: "fr",
       credit: "Crédits",
       menuPlay: "Jouer",
-      menuSetting: "Paramêtre",
+      menuSetting: "Paramètre",
     };
   } else if (lang == "ru") {
     oTrans = {
