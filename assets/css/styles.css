@@ -1,3 +1,8 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 @font-face {
   font-family: "Kenney Future";
   src: url(../../assets/fonts/KENNEY\ FUTURE.TTF);
@@ -12,12 +17,14 @@ p {
 body {
   margin: 0;
   height: 100%;
-  padding: 50px;
   box-sizing: border-box;
 }
 canvas {
   background-color: white;
   transition: 0.2s;
+}
+main {
+  height: 100%;
 }
 #game {
   display: flex;
