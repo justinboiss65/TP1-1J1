@@ -10,9 +10,9 @@ let oRedButton = {
   width: 58,
   height: 28,
   image: new Image(),
-  src: "../assets/img/red_button.svg",
+  src: "./assets/img/red_button.svg",
   imagePressed: new Image(),
-  srcPressed: "../assets/img/red_button_pressed.svg",
+  srcPressed: "./assets/img/red_button_pressed.svg",
 };
 oRedButton.image.src = oRedButton.src;
 oRedButton.imagePressed.src = oRedButton.srcPressed;
