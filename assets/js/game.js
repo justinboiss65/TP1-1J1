@@ -1,8 +1,8 @@
 let oGameUI = new Image();
-oGameUI.src = "../assets/img/game_ui.webp";
+oGameUI.src = "./assets/img/game_ui.webp";
 
 let oGameBg = new Image();
-oGameBg.src = "../assets/img/game_bg.webp";
+oGameBg.src = "./assets/img/game_bg.webp";
 
 let oRedButton = {
   x: 470,
