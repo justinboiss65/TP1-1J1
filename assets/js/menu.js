@@ -1,3 +1,35 @@
+let oMenuTimEE = {
+  width: 437,
+  height: 373,
+  x: -20,
+  y: -60,
+  rotation: -42,
+  animTime: 0,
+  image: new Image(),
+  src: "./assets/img/menuTimEE.svg",
+};
+oMenuTimEE.image.src = oMenuTimEE.src;
+
+let oMenuPlayButton = {
+  width: 500,
+  height: 100,
+  x: 0,
+  y: 325,
+  scale: 50,
+  pressed: false,
+};
+oMenuPlayButton.x = (oCanvas.width / 3) * 2 - oMenuPlayButton.width / 2;
+
+let oMenuSettingButton = {
+  width: 500,
+  height: 100,
+  x: 0,
+  y: 450,
+  scale: 50,
+  pressed: false,
+};
+oMenuSettingButton.x = (oCanvas.width / 3) * 2 - oMenuSettingButton.width / 2;
+
 function menuLoop() {
   oContext.fillStyle = "#e84747";
   oContext.fillRect(0, 0, oCanvas.width, oCanvas.width);
@@ -117,8 +149,23 @@ function menuLoop() {
 }
 
 function menuOnCick() {
+  detectMuteClick();
+  detectTransClick();
+
+  detectPlayClick();
+}
+
+function detectMuteClick() {
   let bMuteClicked = detectClick(nMousePosX, nMousePosY, oMuteButton.x, oMuteButton.y, oMuteButton.width, oMuteButton.height);
 
+  if (bMuteClicked && !bMuted) {
+    bMuted = true;
+  } else if (bMuteClicked && bMuted) {
+    bMuted = false;
+  }
+}
+
+function detectTransClick() {
   let bTransClicked = detectClick(nMousePosX, nMousePosY, oTransButton.x, oTransButton.y, oTransButton.width, oTransButton.height);
 
   if (bTransClicked && lang === "fr") {
@@ -128,10 +175,12 @@ function menuOnCick() {
   } else if (bTransClicked && lang === "ru") {
     lang = "fr";
   }
+}
 
-  if (bMuteClicked && !bMuted) {
-    bMuted = true;
-  } else if (bMuteClicked && bMuted) {
-    bMuted = false;
+function detectPlayClick() {
+  let bPlayClicked = detectClick(nMousePosX, nMousePosY, oMenuPlayButton.x, oMenuPlayButton.y, oMenuPlayButton.width, oMenuPlayButton.height);
+
+  if (bPlayClicked) {
+    sGameStatus = "game";
   }
 }

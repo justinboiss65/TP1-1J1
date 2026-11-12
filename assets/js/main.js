@@ -12,39 +12,6 @@ let lang = "fr"; // fr, en
 let oTrans;
 
 let sSansSerif = "'Kenney Future', 'Arial', 'sans-serif'";
-// Menu
-
-let oMenuTimEE = {
-  width: 437,
-  height: 373,
-  x: -20,
-  y: -60,
-  rotation: -42,
-  animTime: 0,
-  image: new Image(),
-  src: "./assets/img/menuTimEE.svg",
-};
-oMenuTimEE.image.src = oMenuTimEE.src;
-
-let oMenuPlayButton = {
-  width: 500,
-  height: 100,
-  x: 0,
-  y: 325,
-  scale: 50,
-  pressed: false,
-};
-oMenuPlayButton.x = (oCanvas.width / 3) * 2 - oMenuPlayButton.width / 2;
-
-let oMenuSettingButton = {
-  width: 500,
-  height: 100,
-  x: 0,
-  y: 450,
-  scale: 50,
-  pressed: false,
-};
-oMenuSettingButton.x = (oCanvas.width / 3) * 2 - oMenuSettingButton.width / 2;
 
 let oCreditButton = {
   width: 160,
