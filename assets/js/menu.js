@@ -49,48 +49,48 @@ function menuLoop() {
     oContext.fillText(oTrans.menuPlay, oMenuPlayButton.x + oMenuPlayButton.width / 2, oMenuPlayButton.y + 65 + oMenuPlayButton.scale / 10);
   }
 
-  // Bouton de paramêtre
-  oMenuSettingButton.pressed = detectHover(
-    nMousePosX,
-    nMousePosY,
-    oMenuSettingButton.x,
-    oMenuSettingButton.y,
-    oMenuSettingButton.width,
-    oMenuSettingButton.height,
-  );
-  if (!oMenuSettingButton.pressed) {
-    buttonStyle1(oMenuSettingButton.x, oMenuSettingButton.y, oMenuSettingButton.width, oMenuSettingButton.height, oMenuSettingButton.scale);
-    oContext.fillStyle = "#3fe4d6";
-    oContext.textAlign = "center";
-    oContext.font = "bold 50px " + sSansSerif;
-    oContext.fillText(oTrans.menuSetting, oMenuSettingButton.x + oMenuSettingButton.width / 2, oMenuSettingButton.y + 65);
-  } else {
-    buttonStyle2(oMenuSettingButton.x, oMenuSettingButton.y, oMenuSettingButton.width, oMenuSettingButton.height, oMenuSettingButton.scale);
-    oContext.fillStyle = "#3fe4d6";
-    oContext.textAlign = "center";
-    oContext.font = "bold 50px " + sSansSerif;
-    oContext.fillText(
-      oTrans.menuSetting,
-      oMenuSettingButton.x + oMenuSettingButton.width / 2,
-      oMenuSettingButton.y + 65 + oMenuSettingButton.scale / 10,
-    );
-  }
+  // // Bouton de paramêtre
+  // oMenuSettingButton.pressed = detectHover(
+  //   nMousePosX,
+  //   nMousePosY,
+  //   oMenuSettingButton.x,
+  //   oMenuSettingButton.y,
+  //   oMenuSettingButton.width,
+  //   oMenuSettingButton.height,
+  // );
+  // if (!oMenuSettingButton.pressed) {
+  //   buttonStyle1(oMenuSettingButton.x, oMenuSettingButton.y, oMenuSettingButton.width, oMenuSettingButton.height, oMenuSettingButton.scale);
+  //   oContext.fillStyle = "#3fe4d6";
+  //   oContext.textAlign = "center";
+  //   oContext.font = "bold 50px " + sSansSerif;
+  //   oContext.fillText(oTrans.menuSetting, oMenuSettingButton.x + oMenuSettingButton.width / 2, oMenuSettingButton.y + 65);
+  // } else {
+  //   buttonStyle2(oMenuSettingButton.x, oMenuSettingButton.y, oMenuSettingButton.width, oMenuSettingButton.height, oMenuSettingButton.scale);
+  //   oContext.fillStyle = "#3fe4d6";
+  //   oContext.textAlign = "center";
+  //   oContext.font = "bold 50px " + sSansSerif;
+  //   oContext.fillText(
+  //     oTrans.menuSetting,
+  //     oMenuSettingButton.x + oMenuSettingButton.width / 2,
+  //     oMenuSettingButton.y + 65 + oMenuSettingButton.scale / 10,
+  //   );
+  // }
 
-  // Bouton de crédits
-  oCreditButton.pressed = detectHover(nMousePosX, nMousePosY, oCreditButton.x, oCreditButton.y, oCreditButton.width, oCreditButton.height);
-  if (!oCreditButton.pressed) {
-    buttonStyle1(oCreditButton.x, oCreditButton.y, oCreditButton.width, oCreditButton.height, oCreditButton.scale);
-    oContext.fillStyle = "#3fe4d6";
-    oContext.textAlign = "center";
-    oContext.font = "bold 25px " + sSansSerif;
-    oContext.fillText(oTrans.credit, oCreditButton.x + oCreditButton.width / 2 + 2, oCreditButton.y + 37);
-  } else {
-    buttonStyle2(oCreditButton.x, oCreditButton.y, oCreditButton.width, oCreditButton.height, oCreditButton.scale);
-    oContext.fillStyle = "#3fe4d6";
-    oContext.textAlign = "center";
-    oContext.font = "bold 25px " + sSansSerif;
-    oContext.fillText(oTrans.credit, oCreditButton.x + oCreditButton.width / 2 + 2, oCreditButton.y + 37 + oCreditButton.scale / 10);
-  }
+  // // Bouton de crédits
+  // oCreditButton.pressed = detectHover(nMousePosX, nMousePosY, oCreditButton.x, oCreditButton.y, oCreditButton.width, oCreditButton.height);
+  // if (!oCreditButton.pressed) {
+  //   buttonStyle1(oCreditButton.x, oCreditButton.y, oCreditButton.width, oCreditButton.height, oCreditButton.scale);
+  //   oContext.fillStyle = "#3fe4d6";
+  //   oContext.textAlign = "center";
+  //   oContext.font = "bold 25px " + sSansSerif;
+  //   oContext.fillText(oTrans.credit, oCreditButton.x + oCreditButton.width / 2 + 2, oCreditButton.y + 37);
+  // } else {
+  //   buttonStyle2(oCreditButton.x, oCreditButton.y, oCreditButton.width, oCreditButton.height, oCreditButton.scale);
+  //   oContext.fillStyle = "#3fe4d6";
+  //   oContext.textAlign = "center";
+  //   oContext.font = "bold 25px " + sSansSerif;
+  //   oContext.fillText(oTrans.credit, oCreditButton.x + oCreditButton.width / 2 + 2, oCreditButton.y + 37 + oCreditButton.scale / 10);
+  // }
 
   // Bouton couper l'audio
   oMuteButton.pressed = detectHover(nMousePosX, nMousePosY, oMuteButton.x, oMuteButton.y, oMuteButton.width, oMuteButton.height);
@@ -180,7 +180,6 @@ function detectPlayClick() {
   let bPlayClicked = detectClick(nMousePosX, nMousePosY, oMenuPlayButton.x, oMenuPlayButton.y, oMenuPlayButton.width, oMenuPlayButton.height);
 
   if (bPlayClicked) {
-    bGameFocused = true;
     sGameStatus = "game";
   }
 }

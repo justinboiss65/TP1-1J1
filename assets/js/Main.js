@@ -1,14 +1,14 @@
 const oCanvas = document.getElementById("canvas");
 const oContext = oCanvas.getContext("2d");
 
-let sGameStatus = "menu"; // menu, settings, game
+let sGameStatus = "menu"; // menu, game, gameMenu
 
 let nMousePosX;
 let nMousePosY;
 
 let bMuted = true;
 
-let lang = "fr"; // fr, en
+let lang = "fr"; // fr, en, ru
 let oTrans;
 
 let sSansSerif = "'Kenney Future', 'Arial', 'sans-serif'";
@@ -190,6 +190,9 @@ oButtonStyle2ol[7].image.src = oButtonStyle2ol[7].src;
 oButtonStyle2ol[8].image.src = oButtonStyle2ol[8].src;
 oButtonStyle2ol[9].image.src = oButtonStyle2ol[9].src;
 
+let oGameBg = new Image();
+oGameBg.src = "./assets/img/game_bg.webp";
+
 window.addEventListener("load", init);
 
 function init() {
@@ -207,6 +210,7 @@ function globalLoop() {
       credit: "Credits",
       menuPlay: "Play",
       menuSetting: "Settings",
+      gameMenuQuit: "Save & Quit",
     };
   } else if (lang == "fr") {
     oTrans = {
@@ -214,6 +218,7 @@ function globalLoop() {
       credit: "Crédits",
       menuPlay: "Jouer",
       menuSetting: "Paramètre",
+      gameMenuQuit: "Quitter",
     };
   } else if (lang == "ru") {
     oTrans = {
@@ -221,6 +226,7 @@ function globalLoop() {
       credit: "Титры",
       menuPlay: "Играть",
       menuSetting: "Настройки",
+      gameMenuQuit: "Выйти",
     };
   }
 
@@ -230,6 +236,9 @@ function globalLoop() {
       break;
     case "game":
       gameLoop();
+      break;
+    case "gameMenu":
+      gameMenuLoop();
       break;
   }
 }
@@ -251,7 +260,17 @@ function detectHover(nMousePosX, nMousePosY, nObjectX, nObjectY, nObjectWidth, n
 }
 
 function onClick() {
-  menuOnCick();
+  switch (sGameStatus) {
+    case "menu":
+      menuOnCick();
+      break;
+    case "game":
+      gameOnClick();
+      break;
+    case "gameMenu":
+      gameMenuOnClick();
+      break;
+  }
 }
 
 function onMouseMove(event) {
