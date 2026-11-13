@@ -57,20 +57,31 @@ let oCable3 = {
 };
 oCable3.image.src = oCable3.src;
 
-let oPauseMenu = {
+let oGameMenuMenuBar = {
   x: 0,
   y: 0,
   width: 90,
-  height: 56,
-  bgWidth: 78,
-  bgHeight: 48,
+  height: 57,
   image: new Image(),
-  src: "./assets/img/pause_bg.svg",
+  src: "./assets/img/gameMenuBar.webp",
   imagePressed: new Image(),
-  srcPressed: "./assets/img/pause_bg_pressed.svg",
+  srcPressed: "./assets/img/gameMenuBarPressed.webp",
 };
-oPauseMenu.image.src = oPauseMenu.src;
-oPauseMenu.imagePressed.src = oPauseMenu.srcPressed;
+oGameMenuMenuBar.image.src = oGameMenuMenuBar.src;
+oGameMenuMenuBar.imagePressed.src = oGameMenuMenuBar.srcPressed;
+
+let oGameMenuMenuX = {
+  x: 0,
+  y: 0,
+  width: 90,
+  height: 57,
+  image: new Image(),
+  src: "./assets/img/gameMenuX.webp",
+  imagePressed: new Image(),
+  srcPressed: "./assets/img/gameMenuXPressed.webp",
+};
+oGameMenuMenuX.image.src = oGameMenuMenuX.src;
+oGameMenuMenuX.imagePressed.src = oGameMenuMenuX.srcPressed;
 
 //-----------//
 // GAME LOOP //
@@ -87,7 +98,7 @@ function gameDisplay() {
   drawCable(oCable2);
   drawCable(oCable3);
 
-  drawPauseBg();
+  drawGameMenuBar();
 
   oContext.drawImage(oGameUI, 0, 0);
 
@@ -100,13 +111,13 @@ function drawCable(data) {
   }
 }
 
-function drawPauseBg() {
-  let bHover = detectGameMenuMouse(nMousePosX, nMousePosY, oPauseMenu.x, oPauseMenu.y, oPauseMenu.width, oPauseMenu.height);
+function drawGameMenuBar() {
+  let bHover = detectGameMenuMouse(nMousePosX, nMousePosY, oGameMenuMenuBar.x, oGameMenuMenuBar.y, oGameMenuMenuBar.width, oGameMenuMenuBar.height);
 
   if (bHover) {
-    oContext.drawImage(oPauseMenu.imagePressed, oPauseMenu.x, oPauseMenu.y, oPauseMenu.bgWidth, oPauseMenu.bgHeight);
+    oContext.drawImage(oGameMenuMenuBar.imagePressed, oGameMenuMenuBar.x, oGameMenuMenuBar.y, oGameMenuMenuBar.width, oGameMenuMenuBar.height);
   } else {
-    oContext.drawImage(oPauseMenu.image, oPauseMenu.x, oPauseMenu.y, oPauseMenu.bgWidth, oPauseMenu.bgHeight);
+    oContext.drawImage(oGameMenuMenuBar.image, oGameMenuMenuBar.x, oGameMenuMenuBar.y, oGameMenuMenuBar.width, oGameMenuMenuBar.height);
   }
 }
 
@@ -144,7 +155,7 @@ function gameOnClick() {
 }
 
 function gameMenuClickDetect() {
-  let bClicked = detectGameMenuMouse(nMousePosX, nMousePosY, oPauseMenu.x, oPauseMenu.y, oPauseMenu.width, oPauseMenu.height);
+  let bClicked = detectGameMenuMouse(nMousePosX, nMousePosY, oGameMenuMenuBar.x, oGameMenuMenuBar.y, oGameMenuMenuBar.width, oGameMenuMenuBar.height);
 
   if (bClicked) {
     if (sGameStatus === "game") {

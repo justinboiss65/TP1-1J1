@@ -150,6 +150,18 @@ function gameMenuDisplay() {
   oContext.font = "bold 90px " + sSansSerif;
   oContext.fillText("Timergia", 180, 100);
   oContext.fillText("Casino", 175, 180);
+
+  drawGameMenuX();
+}
+
+function drawGameMenuX() {
+  let bHover = detectGameMenuMouse(nMousePosX, nMousePosY, oGameMenuMenuBar.x, oGameMenuMenuBar.y, oGameMenuMenuBar.width, oGameMenuMenuBar.height);
+
+  if (bHover) {
+    oContext.drawImage(oGameMenuMenuX.imagePressed, oGameMenuMenuBar.x, oGameMenuMenuBar.y, oGameMenuMenuBar.width, oGameMenuMenuBar.height);
+  } else {
+    oContext.drawImage(oGameMenuMenuX.image, oGameMenuMenuBar.x, oGameMenuMenuBar.y, oGameMenuMenuBar.width, oGameMenuMenuBar.height);
+  }
 }
 
 //--------------------//
