@@ -6,7 +6,7 @@ let sGameStatus = "menu"; // menu, settings, game
 let nMousePosX;
 let nMousePosY;
 
-let bMuted = false;
+let bMuted = true;
 
 let lang = "fr"; // fr, en
 let oTrans;
