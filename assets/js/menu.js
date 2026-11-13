@@ -1,8 +1,8 @@
 let oMenuTimEE = {
-  width: 437,
-  height: 373,
-  x: -20,
-  y: -60,
+  width: 400,
+  height: 341,
+  x: -60,
+  y: -80,
   rotation: -42,
   animTime: 0,
   image: new Image(),
@@ -31,8 +31,7 @@ let oMenuSettingButton = {
 oMenuSettingButton.x = (oCanvas.width / 3) * 2 - oMenuSettingButton.width / 2;
 
 function menuLoop() {
-  oContext.fillStyle = "#e84747";
-  oContext.fillRect(0, 0, oCanvas.width, oCanvas.width);
+  oContext.drawImage(oGameBg, 0, 0);
 
   // Bouton jouer
   oMenuPlayButton.pressed = detectHover(nMousePosX, nMousePosY, oMenuPlayButton.x, oMenuPlayButton.y, oMenuPlayButton.width, oMenuPlayButton.height);
@@ -129,15 +128,15 @@ function menuLoop() {
 
   // Title
   oContext.textAlign = "right";
-  oContext.fillStyle = "#fff";
-  oContext.font = "bold 70px " + sSansSerif;
-  oContext.fillText("Timergia", oCanvas.width - 50, 200);
-  oContext.fillText("Casino", oCanvas.width - 50, 270);
+  oContext.fillStyle = "#3fe4d6";
+  oContext.font = "bold 90px " + sSansSerif;
+  oContext.fillText("Timergia", oCanvas.width - 50, 210);
+  oContext.fillText("Casino", oCanvas.width - 50, 290);
 
   // TIM-EE
   oMenuTimEE.animTime++;
   if (oMenuTimEE.animTime == 1) {
-    oMenuTimEE.y = -60;
+    oMenuTimEE.y = -80;
   } else if (oMenuTimEE.animTime > 1 && oMenuTimEE.animTime < 120) {
     oMenuTimEE.y = oMenuTimEE.y + 0.25;
   } else if (oMenuTimEE.animTime >= 120 && oMenuTimEE.animTime < 240) {
@@ -181,6 +180,7 @@ function detectPlayClick() {
   let bPlayClicked = detectClick(nMousePosX, nMousePosY, oMenuPlayButton.x, oMenuPlayButton.y, oMenuPlayButton.width, oMenuPlayButton.height);
 
   if (bPlayClicked) {
+    bGameFocused = true;
     sGameStatus = "game";
   }
 }
