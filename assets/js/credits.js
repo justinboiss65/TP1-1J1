@@ -10,7 +10,7 @@ function creditsLoop() {
   oContext.font = "20px " + sSansSerif;
   oContext.fillText(`${oTrans.coder}: Justin Boissonneault`, 100, 200);
   oContext.fillText(`${oTrans.asseter}: Justin Boissonneault`, 100, 235);
-  oContext.fillText(`${oTrans.mather}: Stéphane Delatre`, 100, 270);
+  oContext.fillText(`${oTrans.mather}: Stéphane Delattre`, 100, 270);
   oContext.fillText(`${oTrans.translator}:`, 100, 305);
   oContext.fillText(`Justin Boissonneault`, 125, 330);
   oContext.fillText(`davthegl1tchy0ne`, 125, 355);
