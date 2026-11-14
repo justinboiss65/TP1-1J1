@@ -165,3 +165,9 @@ function gameMenuClickDetect() {
     }
   }
 }
+
+function gameOnKeyUp(event) {
+  if (event.key === "Escape") {
+    sGameStatus = "gameMenu";
+  }
+}

@@ -198,6 +198,7 @@ window.addEventListener("load", init);
 function init() {
   oCanvas.addEventListener("click", onClick);
   oCanvas.addEventListener("mousemove", onMouseMove);
+  window.addEventListener("keyup", onKeyUp);
 
   setInterval(globalLoop, 1000 / 60);
 }
@@ -211,6 +212,10 @@ function globalLoop() {
       menuPlay: "Play",
       menuSetting: "Settings",
       gameMenuQuit: "Save & Quit",
+      coder: "Code by",
+      asseter: "Assets by",
+      mather: "Math helper",
+      translator: "Translation by",
     };
   } else if (lang == "fr") {
     oTrans = {
@@ -219,6 +224,10 @@ function globalLoop() {
       menuPlay: "Jouer",
       menuSetting: "Paramètre",
       gameMenuQuit: "Quitter",
+      coder: "Code par",
+      asseter: "Ressources par",
+      mather: "Aide mathématique",
+      translator: "Traductions par",
     };
   } else if (lang == "ru") {
     oTrans = {
@@ -227,12 +236,19 @@ function globalLoop() {
       menuPlay: "Играть",
       menuSetting: "Настройки",
       gameMenuQuit: "Выйти",
+      coder: "Переводы",
+      asseter: "Ресурсы",
+      mather: "Помощь с математикой",
+      translator: "Код:",
     };
   }
 
   switch (sGameStatus) {
     case "menu":
       menuLoop();
+      break;
+    case "credits":
+      creditsLoop();
       break;
     case "game":
       gameLoop();
@@ -264,11 +280,31 @@ function onClick() {
     case "menu":
       menuOnCick();
       break;
+    case "credits":
+      creditsOnClick();
+      break;
     case "game":
       gameOnClick();
       break;
     case "gameMenu":
       gameMenuOnClick();
+      break;
+  }
+}
+
+function onKeyUp(event) {
+  switch (sGameStatus) {
+    case "menu":
+      menuOnKeyUp(event);
+      break;
+    case "credits":
+      creditsOnKeyUp(event);
+      break;
+    case "game":
+      gameOnKeyUp(event);
+      break;
+    case "gameMenu":
+      gameMenuOnKeyUp(event);
       break;
   }
 }

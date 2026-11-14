@@ -69,32 +69,32 @@ function gameMenuDisplay() {
     );
   }
 
-  //   // Bouton de crédits
-  //   oCreditButton.pressed = detectHover(
-  //     nMousePosX,
-  //     nMousePosY,
-  //     oGameMenuCreditButtonPos.x,
-  //     oGameMenuCreditButtonPos.y,
-  //     oCreditButton.width,
-  //     oCreditButton.height,
-  //   );
-  //   if (!oCreditButton.pressed) {
-  //     buttonStyle1(oGameMenuCreditButtonPos.x, oGameMenuCreditButtonPos.y, oCreditButton.width, oCreditButton.height, oCreditButton.scale);
-  //     oContext.fillStyle = "#3fe4d6";
-  //     oContext.textAlign = "center";
-  //     oContext.font = "bold 25px " + sSansSerif;
-  //     oContext.fillText(oTrans.credit, oGameMenuCreditButtonPos.x + oCreditButton.width / 2 + 2, oGameMenuCreditButtonPos.y + 37);
-  //   } else {
-  //     buttonStyle2(oGameMenuCreditButtonPos.x, oGameMenuCreditButtonPos.y, oCreditButton.width, oCreditButton.height, oCreditButton.scale);
-  //     oContext.fillStyle = "#3fe4d6";
-  //     oContext.textAlign = "center";
-  //     oContext.font = "bold 25px " + sSansSerif;
-  //     oContext.fillText(
-  //       oTrans.credit,
-  //       oGameMenuCreditButtonPos.x + oCreditButton.width / 2 + 2,
-  //       oGameMenuCreditButtonPos.y + 37 + oCreditButton.scale / 10,
-  //     );
-  //   }
+  // Bouton de crédits
+  oCreditButton.pressed = detectHover(
+    nMousePosX,
+    nMousePosY,
+    oGameMenuCreditButtonPos.x,
+    oGameMenuCreditButtonPos.y,
+    oCreditButton.width,
+    oCreditButton.height,
+  );
+  if (!oCreditButton.pressed) {
+    buttonStyle1(oGameMenuCreditButtonPos.x, oGameMenuCreditButtonPos.y, oCreditButton.width, oCreditButton.height, oCreditButton.scale);
+    oContext.fillStyle = "#3fe4d6";
+    oContext.textAlign = "center";
+    oContext.font = "bold 25px " + sSansSerif;
+    oContext.fillText(oTrans.credit, oGameMenuCreditButtonPos.x + oCreditButton.width / 2 + 2, oGameMenuCreditButtonPos.y + 37);
+  } else {
+    buttonStyle2(oGameMenuCreditButtonPos.x, oGameMenuCreditButtonPos.y, oCreditButton.width, oCreditButton.height, oCreditButton.scale);
+    oContext.fillStyle = "#3fe4d6";
+    oContext.textAlign = "center";
+    oContext.font = "bold 25px " + sSansSerif;
+    oContext.fillText(
+      oTrans.credit,
+      oGameMenuCreditButtonPos.x + oCreditButton.width / 2 + 2,
+      oGameMenuCreditButtonPos.y + 37 + oCreditButton.scale / 10,
+    );
+  }
 
   // Bouton couper l'audio
   oMuteButton.pressed = detectHover(
@@ -176,6 +176,7 @@ function gameMenuOnClick() {
 
   gameMenuDetectMuteClick();
   gameMenuDetectTransClick();
+  gameMenuCreditsOnClick();
 }
 
 function gameMenuQuitOnClick() {
@@ -212,5 +213,27 @@ function gameMenuDetectTransClick() {
     lang = "ru";
   } else if (bClicked && lang === "ru") {
     lang = "fr";
+  }
+}
+
+function gameMenuCreditsOnClick() {
+  let bClicked = detectClick(
+    nMousePosX,
+    nMousePosY,
+    oGameMenuCreditButtonPos.x,
+    oGameMenuCreditButtonPos.y,
+    oCreditButton.width,
+    oCreditButton.height,
+  );
+
+  if (bClicked) {
+    sGameStatus = "credits";
+    sCreditsSource = "game";
+  }
+}
+
+function gameMenuOnKeyUp(event) {
+  if (event.key === "Escape") {
+    sGameStatus = "game";
   }
 }
