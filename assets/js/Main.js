@@ -212,10 +212,12 @@ function globalLoop() {
       menuPlay: "Play",
       menuSetting: "Settings",
       gameMenuQuit: "Save & Quit",
-      coder: "Code by",
-      asseter: "Assets by",
-      mather: "Math helper",
-      translator: "Translation by",
+      coder: "Code by: Justin Boissonneault",
+      asseter: "Assets by: Justin Boissonneault",
+      mather: "Math helper: Stéphane Delattre",
+      translator: "Translation by :",
+      translator1: "Justin Boissonneault",
+      translator2: "davthegl1tchy0ne",
     };
   } else if (lang == "fr") {
     oTrans = {
@@ -224,10 +226,12 @@ function globalLoop() {
       menuPlay: "Jouer",
       menuSetting: "Paramètre",
       gameMenuQuit: "Quitter",
-      coder: "Code par",
-      asseter: "Ressources par",
-      mather: "Aide mathématique",
-      translator: "Traductions par",
+      coder: "Code par : Justin Boissonneault",
+      asseter: "Ressources par : Justin Boissonneault",
+      mather: "Aide mathématique : Stéphane Delattre",
+      translator: "Traductions par :",
+      translator1: "Justin Boissonneault",
+      translator2: "davthegl1tchy0ne",
     };
   } else if (lang == "ru") {
     oTrans = {
@@ -236,10 +240,12 @@ function globalLoop() {
       menuPlay: "Играть",
       menuSetting: "Настройки",
       gameMenuQuit: "Выйти",
-      coder: "Переводы",
-      asseter: "Ресурсы",
-      mather: "Помощь с математикой",
-      translator: "Код:",
+      coder: "Переводы:: Boissonneault Justin",
+      asseter: "Ресурсы:: Boissonneault Justin",
+      mather: "Помощь с математикой:: Delattre Stéphane",
+      translator: "Код::",
+      translator1: "Boissonneault Justin",
+      translator2: "davthegl1tchy0ne",
     };
   }
 

@@ -5,15 +5,17 @@ function creditsLoop() {
 
   oContext.font = "90px " + sSansSerif;
   oContext.textAlign = "left";
-  oContext.fillText(`${oTrans.credit}`, 100, 150);
+  oContext.fillStyle = "#3fe4d6";
+  oContext.fillText(`${oTrans.credit}`, 50, 150);
 
   oContext.font = "20px " + sSansSerif;
-  oContext.fillText(`${oTrans.coder}: Justin Boissonneault`, 100, 200);
-  oContext.fillText(`${oTrans.asseter}: Justin Boissonneault`, 100, 235);
-  oContext.fillText(`${oTrans.mather}: Stéphane Delattre`, 100, 270);
-  oContext.fillText(`${oTrans.translator}:`, 100, 305);
-  oContext.fillText(`Justin Boissonneault`, 125, 330);
-  oContext.fillText(`davthegl1tchy0ne`, 125, 355);
+  oContext.fillStyle = "#aeb6df";
+  oContext.fillText(`${oTrans.coder}`, 50, 200);
+  oContext.fillText(`${oTrans.asseter}`, 50, 235);
+  oContext.fillText(`${oTrans.mather}`, 50, 270);
+  oContext.fillText(`${oTrans.translator}`, 50, 305);
+  oContext.fillText(`${oTrans.translator1}`, 75, 330);
+  oContext.fillText(`${oTrans.translator2}`, 75, 355);
 
   drawGameMenuX();
 }
