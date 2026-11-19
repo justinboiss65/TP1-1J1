@@ -9,7 +9,7 @@ let nMousePosY;
 let bMuted = true;
 
 let lang = "fr"; // fr, en, ru
-let oTrans;
+let oTrans = loadTranslations(lang);
 
 let sSansSerif = "'Kenney Future', 'Arial', 'sans-serif'";
 
@@ -196,6 +196,7 @@ oGameBg.src = "./assets/img/game_bg.webp";
 window.addEventListener("load", init);
 
 function init() {
+  menuInit();
   oCanvas.addEventListener("click", onClick);
   oCanvas.addEventListener("mousemove", onMouseMove);
   window.addEventListener("keyup", onKeyUp);
@@ -204,51 +205,6 @@ function init() {
 }
 
 function globalLoop() {
-  // Traduction
-  if (lang == "en") {
-    oTrans = {
-      lang: "en",
-      credit: "Credits",
-      menuPlay: "Play",
-      menuSetting: "Settings",
-      gameMenuQuit: "Save & Quit",
-      coder: "Code by: Justin Boissonneault",
-      asseter: "Assets by: Justin Boissonneault",
-      mather: "Math helper: Stéphane Delattre",
-      translator: "Translation by :",
-      translator1: "Justin Boissonneault",
-      translator2: "davthegl1tchy0ne",
-    };
-  } else if (lang == "fr") {
-    oTrans = {
-      lang: "fr",
-      credit: "Crédits",
-      menuPlay: "Jouer",
-      menuSetting: "Paramètre",
-      gameMenuQuit: "Quitter",
-      coder: "Code par : Justin Boissonneault",
-      asseter: "Ressources par : Justin Boissonneault",
-      mather: "Aide mathématique : Stéphane Delattre",
-      translator: "Traductions par :",
-      translator1: "Justin Boissonneault",
-      translator2: "davthegl1tchy0ne",
-    };
-  } else if (lang == "ru") {
-    oTrans = {
-      lang: "ru",
-      credit: "Титры",
-      menuPlay: "Играть",
-      menuSetting: "Настройки",
-      gameMenuQuit: "Выйти",
-      coder: "Переводы:: Boissonneault Justin",
-      asseter: "Ресурсы:: Boissonneault Justin",
-      mather: "Помощь с математикой:: Delattre Stéphane",
-      translator: "Код::",
-      translator1: "Boissonneault Justin",
-      translator2: "davthegl1tchy0ne",
-    };
-  }
-
   switch (sGameStatus) {
     case "menu":
       menuLoop();
@@ -265,15 +221,7 @@ function globalLoop() {
   }
 }
 
-function detectClick(nMousePosX, nMousePosY, nObjectX, nObjectY, nObjectWidth, nObjectHeight) {
-  if (nMousePosX >= nObjectX && nMousePosX <= nObjectX + nObjectWidth && nMousePosY >= nObjectY && nMousePosY <= nObjectY + nObjectHeight) {
-    return true;
-  } else {
-    return false;
-  }
-}
-
-function detectHover(nMousePosX, nMousePosY, nObjectX, nObjectY, nObjectWidth, nObjectHeight) {
+function detectMouse(nMousePosX, nMousePosY, nObjectX, nObjectY, nObjectWidth, nObjectHeight) {
   if (nMousePosX >= nObjectX && nMousePosX <= nObjectX + nObjectWidth && nMousePosY >= nObjectY && nMousePosY <= nObjectY + nObjectHeight) {
     return true;
   } else {

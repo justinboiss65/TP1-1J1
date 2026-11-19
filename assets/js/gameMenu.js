@@ -43,7 +43,7 @@ function gameMenuDisplay() {
   oContext.fill();
 
   // QUIT BUTTON
-  oGameMenuMenuButton.pressed = detectHover(
+  oGameMenuMenuButton.pressed = detectMouse(
     nMousePosX,
     nMousePosY,
     oGameMenuMenuButton.x,
@@ -53,13 +53,13 @@ function gameMenuDisplay() {
   );
   if (!oGameMenuMenuButton.pressed) {
     buttonStyle1(oGameMenuMenuButton.x, oGameMenuMenuButton.y, oGameMenuMenuButton.width, oGameMenuMenuButton.height, oGameMenuMenuButton.scale);
-    oContext.fillStyle = "#3fe4d6";
+    oContext.fillStyle = "#aeb6df";
     oContext.textAlign = "center";
     oContext.font = "bold 50px " + sSansSerif;
     oContext.fillText(oTrans.gameMenuQuit, oGameMenuMenuButton.x + oGameMenuMenuButton.width / 2, oGameMenuMenuButton.y + 65);
   } else {
     buttonStyle2(oGameMenuMenuButton.x, oGameMenuMenuButton.y, oGameMenuMenuButton.width, oGameMenuMenuButton.height, oGameMenuMenuButton.scale);
-    oContext.fillStyle = "#3fe4d6";
+    oContext.fillStyle = "#aeb6df";
     oContext.textAlign = "center";
     oContext.font = "bold 50px " + sSansSerif;
     oContext.fillText(
@@ -70,7 +70,7 @@ function gameMenuDisplay() {
   }
 
   // Bouton de crédits
-  oCreditButton.pressed = detectHover(
+  oCreditButton.pressed = detectMouse(
     nMousePosX,
     nMousePosY,
     oGameMenuCreditButtonPos.x,
@@ -80,13 +80,13 @@ function gameMenuDisplay() {
   );
   if (!oCreditButton.pressed) {
     buttonStyle1(oGameMenuCreditButtonPos.x, oGameMenuCreditButtonPos.y, oCreditButton.width, oCreditButton.height, oCreditButton.scale);
-    oContext.fillStyle = "#3fe4d6";
+    oContext.fillStyle = "#aeb6df";
     oContext.textAlign = "center";
     oContext.font = "bold 25px " + sSansSerif;
     oContext.fillText(oTrans.credit, oGameMenuCreditButtonPos.x + oCreditButton.width / 2 + 2, oGameMenuCreditButtonPos.y + 37);
   } else {
     buttonStyle2(oGameMenuCreditButtonPos.x, oGameMenuCreditButtonPos.y, oCreditButton.width, oCreditButton.height, oCreditButton.scale);
-    oContext.fillStyle = "#3fe4d6";
+    oContext.fillStyle = "#aeb6df";
     oContext.textAlign = "center";
     oContext.font = "bold 25px " + sSansSerif;
     oContext.fillText(
@@ -97,7 +97,7 @@ function gameMenuDisplay() {
   }
 
   // Bouton couper l'audio
-  oMuteButton.pressed = detectHover(
+  oMuteButton.pressed = detectMouse(
     nMousePosX,
     nMousePosY,
     oGameMenuMuteButtonPos.x,
@@ -122,7 +122,7 @@ function gameMenuDisplay() {
   }
 
   // Bouton de traduction
-  oTransButton.pressed = detectHover(
+  oTransButton.pressed = detectMouse(
     nMousePosX,
     nMousePosY,
     oGameMenuTransButtonPos.x,
@@ -132,13 +132,13 @@ function gameMenuDisplay() {
   );
   if (!oTransButton.pressed) {
     buttonStyle1(oGameMenuTransButtonPos.x, oGameMenuTransButtonPos.y, oTransButton.width, oTransButton.height, oTransButton.scale);
-    oContext.fillStyle = "#3fe4d6";
+    oContext.fillStyle = "#aeb6df";
     oContext.textAlign = "center";
     oContext.font = "bold 25px " + sSansSerif;
     oContext.fillText(oTrans.lang, oGameMenuTransButtonPos.x + oTransButton.width / 2 + 2, oGameMenuTransButtonPos.y + 37);
   } else {
     buttonStyle2(oGameMenuTransButtonPos.x, oGameMenuTransButtonPos.y, oTransButton.width, oTransButton.height, oTransButton.scale);
-    oContext.fillStyle = "#3fe4d6";
+    oContext.fillStyle = "#aeb6df";
     oContext.textAlign = "center";
     oContext.font = "bold 25px 'Kenney Future'";
     oContext.fillText(oTrans.lang, oGameMenuTransButtonPos.x + oTransButton.width / 2 + 2, oGameMenuTransButtonPos.y + 37 + oTransButton.scale / 10);
@@ -180,7 +180,7 @@ function gameMenuOnClick() {
 }
 
 function gameMenuQuitOnClick() {
-  let bClicked = detectClick(
+  let bClicked = detectMouse(
     nMousePosX,
     nMousePosY,
     oGameMenuMenuButton.x,
@@ -195,7 +195,7 @@ function gameMenuQuitOnClick() {
 }
 
 function gameMenuDetectMuteClick() {
-  let bClicked = detectClick(nMousePosX, nMousePosY, oGameMenuMuteButtonPos.x, oGameMenuMuteButtonPos.y, oMuteButton.width, oMuteButton.height);
+  let bClicked = detectMouse(nMousePosX, nMousePosY, oGameMenuMuteButtonPos.x, oGameMenuMuteButtonPos.y, oMuteButton.width, oMuteButton.height);
 
   if (bClicked && !bMuted) {
     bMuted = true;
@@ -205,7 +205,7 @@ function gameMenuDetectMuteClick() {
 }
 
 function gameMenuDetectTransClick() {
-  let bClicked = detectClick(nMousePosX, nMousePosY, oGameMenuTransButtonPos.x, oGameMenuTransButtonPos.y, oTransButton.width, oTransButton.height);
+  let bClicked = detectMouse(nMousePosX, nMousePosY, oGameMenuTransButtonPos.x, oGameMenuTransButtonPos.y, oTransButton.width, oTransButton.height);
 
   if (bClicked && lang === "fr") {
     lang = "en";
@@ -214,10 +214,11 @@ function gameMenuDetectTransClick() {
   } else if (bClicked && lang === "ru") {
     lang = "fr";
   }
+  oTrans = loadTranslations(lang);
 }
 
 function gameMenuCreditsOnClick() {
-  let bClicked = detectClick(
+  let bClicked = detectMouse(
     nMousePosX,
     nMousePosY,
     oGameMenuCreditButtonPos.x,

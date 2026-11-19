@@ -124,7 +124,7 @@ function drawGameMenuBar() {
 function gameDrawRedButton() {
   let bHover = false;
   if (sGameStatus === "game") {
-    bHover = detectHover(nMousePosX, nMousePosY, oRedButton.x, oRedButton.y, oRedButton.width, oRedButton.height);
+    bHover = detectMouse(nMousePosX, nMousePosY, oRedButton.x, oRedButton.y, oRedButton.width, oRedButton.height);
   }
 
   if (bHover) {

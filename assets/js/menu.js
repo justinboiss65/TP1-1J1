@@ -8,7 +8,6 @@ let oMenuTimEE = {
   image: new Image(),
   src: "./assets/img/menuTimEE.svg",
 };
-oMenuTimEE.image.src = oMenuTimEE.src;
 
 let oMenuPlayButton = {
   width: 500,
@@ -18,7 +17,6 @@ let oMenuPlayButton = {
   scale: 50,
   pressed: false,
 };
-oMenuPlayButton.x = (oCanvas.width / 3) * 2 - oMenuPlayButton.width / 2;
 
 let oMenuSettingButton = {
   width: 500,
@@ -28,29 +26,33 @@ let oMenuSettingButton = {
   scale: 50,
   pressed: false,
 };
-oMenuSettingButton.x = (oCanvas.width / 3) * 2 - oMenuSettingButton.width / 2;
 
+function menuInit() {
+  oMenuTimEE.image.src = oMenuTimEE.src;
+  oMenuPlayButton.x = (oCanvas.width / 3) * 2 - oMenuPlayButton.width / 2;
+  oMenuSettingButton.x = (oCanvas.width / 3) * 2 - oMenuSettingButton.width / 2;
+}
 function menuLoop() {
   oContext.drawImage(oGameBg, 0, 0);
 
   // Bouton jouer
-  oMenuPlayButton.pressed = detectHover(nMousePosX, nMousePosY, oMenuPlayButton.x, oMenuPlayButton.y, oMenuPlayButton.width, oMenuPlayButton.height);
+  oMenuPlayButton.pressed = detectMouse(nMousePosX, nMousePosY, oMenuPlayButton.x, oMenuPlayButton.y, oMenuPlayButton.width, oMenuPlayButton.height);
   if (!oMenuPlayButton.pressed) {
     buttonStyle1(oMenuPlayButton.x, oMenuPlayButton.y, oMenuPlayButton.width, oMenuPlayButton.height, oMenuPlayButton.scale);
-    oContext.fillStyle = "#3fe4d6";
+    oContext.fillStyle = "#aeb6df";
     oContext.textAlign = "center";
     oContext.font = "bold 50px " + sSansSerif;
     oContext.fillText(oTrans.menuPlay, oMenuPlayButton.x + oMenuPlayButton.width / 2, oMenuPlayButton.y + 65);
   } else {
     buttonStyle2(oMenuPlayButton.x, oMenuPlayButton.y, oMenuPlayButton.width, oMenuPlayButton.height, oMenuPlayButton.scale);
-    oContext.fillStyle = "#3fe4d6";
+    oContext.fillStyle = "#aeb6df";
     oContext.textAlign = "center";
     oContext.font = "bold 50px " + sSansSerif;
     oContext.fillText(oTrans.menuPlay, oMenuPlayButton.x + oMenuPlayButton.width / 2, oMenuPlayButton.y + 65 + oMenuPlayButton.scale / 10);
   }
 
   // // Bouton de paramêtre
-  // oMenuSettingButton.pressed = detectHover(
+  // oMenuSettingButton.pressed = detectMouse(
   //   nMousePosX,
   //   nMousePosY,
   //   oMenuSettingButton.x,
@@ -60,13 +62,13 @@ function menuLoop() {
   // );
   // if (!oMenuSettingButton.pressed) {
   //   buttonStyle1(oMenuSettingButton.x, oMenuSettingButton.y, oMenuSettingButton.width, oMenuSettingButton.height, oMenuSettingButton.scale);
-  //   oContext.fillStyle = "#3fe4d6";
+  //   oContext.fillStyle = "#aeb6df";
   //   oContext.textAlign = "center";
   //   oContext.font = "bold 50px " + sSansSerif;
   //   oContext.fillText(oTrans.menuSetting, oMenuSettingButton.x + oMenuSettingButton.width / 2, oMenuSettingButton.y + 65);
   // } else {
   //   buttonStyle2(oMenuSettingButton.x, oMenuSettingButton.y, oMenuSettingButton.width, oMenuSettingButton.height, oMenuSettingButton.scale);
-  //   oContext.fillStyle = "#3fe4d6";
+  //   oContext.fillStyle = "#aeb6df";
   //   oContext.textAlign = "center";
   //   oContext.font = "bold 50px " + sSansSerif;
   //   oContext.fillText(
@@ -77,23 +79,23 @@ function menuLoop() {
   // }
 
   // Bouton de crédits
-  oCreditButton.pressed = detectHover(nMousePosX, nMousePosY, oCreditButton.x, oCreditButton.y, oCreditButton.width, oCreditButton.height);
+  oCreditButton.pressed = detectMouse(nMousePosX, nMousePosY, oCreditButton.x, oCreditButton.y, oCreditButton.width, oCreditButton.height);
   if (!oCreditButton.pressed) {
     buttonStyle1(oCreditButton.x, oCreditButton.y, oCreditButton.width, oCreditButton.height, oCreditButton.scale);
-    oContext.fillStyle = "#3fe4d6";
+    oContext.fillStyle = "#aeb6df";
     oContext.textAlign = "center";
     oContext.font = "bold 25px " + sSansSerif;
     oContext.fillText(oTrans.credit, oCreditButton.x + oCreditButton.width / 2 + 2, oCreditButton.y + 37);
   } else {
     buttonStyle2(oCreditButton.x, oCreditButton.y, oCreditButton.width, oCreditButton.height, oCreditButton.scale);
-    oContext.fillStyle = "#3fe4d6";
+    oContext.fillStyle = "#aeb6df";
     oContext.textAlign = "center";
     oContext.font = "bold 25px " + sSansSerif;
     oContext.fillText(oTrans.credit, oCreditButton.x + oCreditButton.width / 2 + 2, oCreditButton.y + 37 + oCreditButton.scale / 10);
   }
 
   // Bouton couper l'audio
-  oMuteButton.pressed = detectHover(nMousePosX, nMousePosY, oMuteButton.x, oMuteButton.y, oMuteButton.width, oMuteButton.height);
+  oMuteButton.pressed = detectMouse(nMousePosX, nMousePosY, oMuteButton.x, oMuteButton.y, oMuteButton.width, oMuteButton.height);
   if (!oMuteButton.pressed) {
     buttonStyle1(oMuteButton.x, oMuteButton.y, oMuteButton.width, oMuteButton.height, oMuteButton.scale);
     if (!bMuted) {
@@ -111,16 +113,16 @@ function menuLoop() {
   }
 
   // Bouton de traduction
-  oTransButton.pressed = detectHover(nMousePosX, nMousePosY, oTransButton.x, oTransButton.y, oTransButton.width, oTransButton.height);
+  oTransButton.pressed = detectMouse(nMousePosX, nMousePosY, oTransButton.x, oTransButton.y, oTransButton.width, oTransButton.height);
   if (!oTransButton.pressed) {
     buttonStyle1(oTransButton.x, oTransButton.y, oTransButton.width, oTransButton.height, oTransButton.scale);
-    oContext.fillStyle = "#3fe4d6";
+    oContext.fillStyle = "#aeb6df";
     oContext.textAlign = "center";
     oContext.font = "bold 25px " + sSansSerif;
     oContext.fillText(oTrans.lang, oTransButton.x + oTransButton.width / 2 + 2, oTransButton.y + 37);
   } else {
     buttonStyle2(oTransButton.x, oTransButton.y, oTransButton.width, oTransButton.height, oTransButton.scale);
-    oContext.fillStyle = "#3fe4d6";
+    oContext.fillStyle = "#aeb6df";
     oContext.textAlign = "center";
     oContext.font = "bold 25px 'Kenney Future'";
     oContext.fillText(oTrans.lang, oTransButton.x + oTransButton.width / 2 + 2, oTransButton.y + 37 + oTransButton.scale / 10);
@@ -147,6 +149,9 @@ function menuLoop() {
   oContext.drawImage(oMenuTimEE.image, oMenuTimEE.x, oMenuTimEE.y, oMenuTimEE.width, oMenuTimEE.height);
 }
 
+//----------------------------//
+// LORS D'UN CLIC SUR LE MENU //
+//----------------------------//
 function menuOnCick() {
   detectMuteClick();
   detectTransClick();
@@ -156,7 +161,7 @@ function menuOnCick() {
 }
 
 function detectMuteClick() {
-  let bMuteClicked = detectClick(nMousePosX, nMousePosY, oMuteButton.x, oMuteButton.y, oMuteButton.width, oMuteButton.height);
+  let bMuteClicked = detectMouse(nMousePosX, nMousePosY, oMuteButton.x, oMuteButton.y, oMuteButton.width, oMuteButton.height);
 
   if (bMuteClicked && !bMuted) {
     bMuted = true;
@@ -166,19 +171,23 @@ function detectMuteClick() {
 }
 
 function detectTransClick() {
-  let bTransClicked = detectClick(nMousePosX, nMousePosY, oTransButton.x, oTransButton.y, oTransButton.width, oTransButton.height);
+  let bTransClicked = detectMouse(nMousePosX, nMousePosY, oTransButton.x, oTransButton.y, oTransButton.width, oTransButton.height);
 
   if (bTransClicked && lang === "fr") {
     lang = "en";
+    // loadTranslations();
   } else if (bTransClicked && lang === "en") {
     lang = "ru";
+    // loadTranslations();
   } else if (bTransClicked && lang === "ru") {
     lang = "fr";
+    // loadTranslations();
   }
+  oTrans = loadTranslations(lang);
 }
 
 function menuCreditsOnClick() {
-  let bClicked = detectClick(nMousePosX, nMousePosY, oCreditButton.x, oCreditButton.y, oCreditButton.width, oCreditButton.height);
+  let bClicked = detectMouse(nMousePosX, nMousePosY, oCreditButton.x, oCreditButton.y, oCreditButton.width, oCreditButton.height);
 
   if (bClicked) {
     sGameStatus = "credits";
@@ -187,7 +196,7 @@ function menuCreditsOnClick() {
 }
 
 function detectPlayClick() {
-  let bPlayClicked = detectClick(nMousePosX, nMousePosY, oMenuPlayButton.x, oMenuPlayButton.y, oMenuPlayButton.width, oMenuPlayButton.height);
+  let bPlayClicked = detectMouse(nMousePosX, nMousePosY, oMenuPlayButton.x, oMenuPlayButton.y, oMenuPlayButton.width, oMenuPlayButton.height);
 
   if (bPlayClicked) {
     sGameStatus = "game";
